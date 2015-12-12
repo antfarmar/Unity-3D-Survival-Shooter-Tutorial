@@ -1,8 +1,10 @@
 # SURVIVAL SHOOTER TUTORIAL
 
-### Learn how to make an isometric 3D survival shooter game.
+## Learn how to make an isometric 3D survival shooter game.
 
-Requires Unity 5.1.1 or higher.
+_Requires Unity 5.1.1 or higher._
+
+## Resources
 
 [Asset Store](https://www.assetstore.unity3d.com/en/#!/content/40756)
 
@@ -12,8 +14,10 @@ Requires Unity 5.1.1 or higher.
 
 
 
-### Upgrade: Create An In-Game Gun Shop Using `ScriptableObjects` and the UI System
+## Developments
+
+#### Created An In-Game Gun Shop Using `ScriptableObjects` and the UI System
 
 In this live training session we will extend the Survival Shooter training project by adding an in-game shop where the player can purchase additional weapons. We'll achieve this using a combination of scriptable objects to store weapon data and the UI system.
 
-[Live Training](http://unity3d.com/learn/tutorials/modules/intermediate/live-training-archive/creating-an-in-game-shop)
+[Unity Live Training](http://unity3d.com/learn/tutorials/modules/intermediate/live-training-archive/creating-an-in-game-shop)
