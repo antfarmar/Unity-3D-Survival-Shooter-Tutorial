@@ -9,3 +9,6 @@ Requires Unity 5.1.1 or higher.
 [Unity Tutorial Videos](http://unity3d.com/learn/tutorials/projects/survival-shooter-project)
 
 [Forum](http://forum.unity3d.com/threads/unity-5-survival-shooter-q-a.338190/)
+
+#### Create An In-Game Shop: Using `ScriptableObject` 
+[Live Training](http://unity3d.com/learn/tutorials/modules/intermediate/live-training-archive/creating-an-in-game-shop)
