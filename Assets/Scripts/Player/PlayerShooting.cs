@@ -21,6 +21,10 @@ public class PlayerShooting : MonoBehaviour
     public Light faceLight;                             // Duh
     float effectsDisplayTime = 0.2f;                // The proportion of the timeBetweenBullets that the effects will display for.
 
+    // Added for In-Game Shop Live Training Tutorial
+    // http://unity3d.com/learn/tutorials/modules/intermediate/live-training-archive/creating-an-in-game-shop
+    public WeaponObject[] weapons;
+    public int currentWeapon = 0;
 
     void Awake()
     {
@@ -43,7 +47,8 @@ public class PlayerShooting : MonoBehaviour
 
 #if !MOBILE_INPUT
         // If the Fire1 button is being press and it's time to fire...
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+        //if (Input.GetButton("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+        if (Input.GetButton("Fire1") && timer >= weapons[currentWeapon].fireRate && Time.timeScale != 0)
         {
             // ... shoot the gun.
             Shoot();
@@ -57,7 +62,8 @@ public class PlayerShooting : MonoBehaviour
             }
 #endif
         // If the timer has exceeded the proportion of timeBetweenBullets that the effects should be displayed for...
-        if (timer >= timeBetweenBullets * effectsDisplayTime)
+        //if (timer >= timeBetweenBullets * effectsDisplayTime)
+        if (timer >= weapons[currentWeapon].fireRate * effectsDisplayTime)
         {
             // ... disable the effects.
             DisableEffects();
@@ -99,7 +105,8 @@ public class PlayerShooting : MonoBehaviour
         shootRay.direction = transform.forward;
 
         // Perform the raycast against gameobjects on the shootable layer and if it hits something...
-        if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
+        //if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
+        if (Physics.Raycast(shootRay, out shootHit, weapons[currentWeapon].range, shootableMask))
         {
             // Try and find an EnemyHealth script on the gameobject hit.
             EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
@@ -108,7 +115,8 @@ public class PlayerShooting : MonoBehaviour
             if (enemyHealth != null)
             {
                 // ... the enemy should take damage.
-                enemyHealth.TakeDamage(damagePerShot, shootHit.point);
+                //enemyHealth.TakeDamage(damagePerShot, shootHit.point);
+                enemyHealth.TakeDamage(weapons[currentWeapon].damagePerShot, shootHit.point);
             }
 
             // Set the second position of the line renderer to the point the raycast hit.
@@ -118,7 +126,8 @@ public class PlayerShooting : MonoBehaviour
         else
         {
             // ... set the second position of the line renderer to the fullest extent of the gun's range.
-            gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+            //gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);
+            gunLine.SetPosition(1, shootRay.origin + shootRay.direction * weapons[currentWeapon].range);
         }
     }
 }
